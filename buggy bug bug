@@ -8,6 +8,9 @@ function image_read_and_extract_colors(filename)
     
     println("BUG BUG BUG2")
 
+ 
+    println("Reset with git reset --mixed")
+
     return RChannel, GChannel, BChannel
     
 end
