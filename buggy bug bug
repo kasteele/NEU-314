@@ -6,6 +6,9 @@ function image_read_and_extract_colors(filename)
     GChannel = image[:,:,2]
     BChannel = image[:,:,3]
     
+    
+    println("BUG BUG BUG")
+    
     return RChannel, GChannel, BChannel
     
 end
