@@ -1,0 +1,11 @@
+function image_read_and_extract_colors(filename)
+    image = imread(filename)
+    imshow(convert(typeof(image), image))
+    
+    RChannel = image[:,:,1]
+    GChannel = image[:,:,2]
+    BChannel = image[:,:,3]
+    
+    return RChannel, GChannel, BChannel
+    
+end
