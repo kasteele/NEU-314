@@ -1,0 +1,7 @@
+using PyPlot
+image = imread("el-capitan.png")
+size(image)
+imshow(convert(typeof(image), image))
+title("El-Capitan")
+axis("off")
+figure(figsize=[100,100])
