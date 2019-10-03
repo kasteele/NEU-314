@@ -19,10 +19,41 @@ function image_read_and_extract_colors(filename)
     GChannel = image[:,:,2]
     BChannel = image[:,:,3]
 
-    println("BUG BUG BUG")
+    println("Reset with git reset --mixed")
 
     return RChannel, GChannel, BChannel
 
 end
 
 image_read_and_extract_colors("el-capitan.png")
+
+
+#= part e
+Set image2[:,:,1] to be the G channel,
+image2[:,:,2] to be the B channel,
+and image2[:,:,3] to be the
+R channel from the original image. =#
+
+image = imread("el-capitan.png")
+image2 = copy(image)
+
+R,G,B = image_read_and_extract_colors("el-capitan.png")
+
+image2[:,:,1] = G
+image2[:, :, 2] = B
+image2[:, :, 3] = R
+
+
+clf()
+
+# show the images side by side
+subplot(1,2,1, title = "original image")
+imshow(convert(typeof(image), image))
+
+axis("off")
+
+subplot(1,2,2, title = "color altered image")
+imshow(convert(typeof(image2), image2))
+
+axis("off")
+figure(figsize=[100,100])
