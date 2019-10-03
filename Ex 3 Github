@@ -126,7 +126,7 @@ Returns:
    channel shifted as defined by the shift number.
 """
 
-
+---
 function circular_rotation(filename, shift_num)
 
     image = imread(filename)
@@ -151,14 +151,17 @@ function circular_rotation(filename, shift_num)
 
     return copy2
 end
-
+---
 clf()
-
 
 shifted = circular_rotation("el-capitan.png", 180)
 
+subplot(1,2,1, title = "original image")
+imshow(convert(typeof(image), image))
+
+axis("off")
+
+subplot(1,2,2, title = "circularly rotated image")
 imshow(convert(typeof(shifted), shifted))
 
 axis("off")
-title("Red Shifted Image")
-figure(figsize=[100,100])
