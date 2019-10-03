@@ -57,3 +57,48 @@ imshow(convert(typeof(image2), image2))
 
 axis("off")
 figure(figsize=[100,100])
+
+#= part 1)B
+A “circular” rotation of elements in a matrix
+moves the contents of the matrix such that
+elements that “fall off” one edge “circle back”
+to the opposite edge.
+Write a function that, for given an image,
+circularly moves only one channel, the red
+channel (remember, this is the first one) up
+some number of pixels, p, such that the
+top p rows now become the bottom p rows. Your
+function should take two arguments -- 1)
+your image and 2) the number of pixels you
+want to shift it by -- and return the shifted image.
+Display both the original image channel
+and the result of circularly moving the red channel
+up by 180 pixels.  =#
+
+#= function description =#
+
+
+function circular_rotation(filename, shift_num)
+
+    image = imread(filename)
+    dimensions = size(image)
+    dimX = dimensions[1]
+
+    while shift_num > dimX
+        shift_num = shift_num - dimX
+    end
+
+
+    copy2 = copy(image)
+
+    for i = 1:shift_num
+        copy2[end - shift_num + i, :, 1] = image[i, :, 1]
+    end
+
+    for i = 1:(dimX - shift_num)
+       copy2[i,:,1]= image[i + shift_num, :,1]
+
+    end
+
+    return copy2
+end
