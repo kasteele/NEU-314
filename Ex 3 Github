@@ -8,7 +8,26 @@ figure(figsize=[100,100])
 
 typeof(image)
 
-#Add function description
+"""
+image_read_and_extract_colors -- This function reads in an
+image and returns the R, G, and B channels as separate
+variables.
+
+The function takes in a filename and reads in image data and
+shows the image. It then separates the data to three separate
+arrays that hold the data for the R, G, and B channels. We
+ignore the alpha channel (index 4) in this exercise set. It
+then returns the separate channel data in the form of arrays.
+
+Args:
+   arg1, filename (str): arg1 is the filename of
+   the image you want to extract the R,G,B channels
+   from
+
+Returns:
+   out (three arrays of type Array{Float32,2}):
+   Each array is the R, G, and B channel data respectively.
+"""
 
 function image_read_and_extract_colors(filename)
     image = imread(filename)
@@ -75,7 +94,32 @@ Display both the original image channel
 and the result of circularly moving the red channel
 up by 180 pixels.  =#
 
-#= function description =#
+"""
+Cirular Rotation -- This function circularly moves the red
+channel in a give image by the number of pixels specified.
+
+The function reads in the image and defines the definition
+of the image. It then account for if the shift number
+(shift_num) given is larger than the dimensions of the
+image. It then makes a copy of the image. The first
+for loop shifts the appropriate number of rows by
+making the first shift_num rows the bottome shift_num
+rows of the image. The second loop shifts the "non-shifted"
+rows up, so that the row below the last shifted row appears
+at the top of the image. It returns the shifted copy of
+the image.
+
+
+Args:
+   filename, arg1 (str): arg1 is the filename of the image
+   you want to shift the pixels of
+   arg2 (str): Description of arg2
+
+Returns:
+   out (image, Array{Float32,3}): The function returns
+   a shifted copy of the original image with the red
+   channel shifted as defined by the shift number.
+"""
 
 
 function circular_rotation(filename, shift_num)
