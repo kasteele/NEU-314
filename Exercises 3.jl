@@ -44,10 +44,12 @@ from the original image. =#
 
 image2 = copy(image)
 
+R,G,B = image_read_and_extract_colors("el-capitan.png")
 
-R = image[:,:,1]
-G = image[:,:,2]
-B = image[:,:,3]
+
+#R = image[:,:,1]
+#G = image[:,:,2]
+#B = image[:,:,3]
 
 image2[:,:,1] = G
 image2[:, :, 2] = B
@@ -82,6 +84,8 @@ to shift it by -- and return the shifted image.
 Display both the original image channel and the
 result of circularly moving the red channel
 up by 180 pixels.  =#
+
+# red channel!!!
 
 
 matrix = [1 2 3; 4 5 6; 7 8 9]
@@ -131,12 +135,12 @@ function circular_rotation(filename, shift_num)
     copy2 = copy(image)
 
     for i = 1:shift_num
-        copy2[end - shift_num + i, :, :] = image[i, :, :]
-        #copy2[i, :, :] =
+        copy2[end - shift_num + i, :, 1] = image[i, :, 1]
+        #copy2[i, :, 1] =
     end
 
     for i = 1:(dimX - shift_num)
-       copy2[i,:,:] = image[i + shift_num, :,:]
+       copy2[i,:,1]= image[i + shift_num, :,1]
 
     end
 
@@ -153,11 +157,3 @@ clf()
 shifted = circular_rotation("el-capitan.png", 700)
 
 imshow(convert(typeof(shifted), shifted))
-
-
-
-
-
-
-
- 
