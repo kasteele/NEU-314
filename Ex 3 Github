@@ -102,3 +102,14 @@ function circular_rotation(filename, shift_num)
 
     return copy2
 end
+
+clf()
+
+
+shifted = circular_rotation("el-capitan.png", 180)
+
+imshow(convert(typeof(shifted), shifted))
+
+axis("off")
+title("Red Shifted Image")
+figure(figsize=[100,100])
